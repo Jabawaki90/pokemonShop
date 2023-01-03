@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./Slider.css";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper";
 
 import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 import MiniCard from "../card/MiniCard";
 
 // const url = "https://pokeapi.co/api/v2/generation/1/";
@@ -23,7 +26,7 @@ const Slider = (props) => {
   return (
     <div className="slider-container">
       <h2>{genName}</h2>
-      <div>
+      <div className="swiper-container">
         <Swiper
           breakpoints={{
             0: {
@@ -52,6 +55,7 @@ const Slider = (props) => {
           slidesPerGroup={1}
           loop={false}
           grabCursor={true}
+          modules={[Pagination, Navigation]}
         >
           {pokeGen.map((poke, index) => {
             return (

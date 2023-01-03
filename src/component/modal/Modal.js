@@ -1,21 +1,18 @@
 import React from "react";
+import { createPortal } from "react-dom";
+import { closeModal } from "../../features/user/userSlice";
+import { useDispatch } from "react-redux";
+import "./Modal.css";
 
-const Modal = () => {
-  return (
-    <div className="modal-background">
-      <button>X</button>
-      <div className="modal-container">
-        <div className="modal-header">
-          <h1>header</h1>
-        </div>
-        <div className="modal-body">
-          <h1>body</h1>
-        </div>
-        <div className="modal-footer">
-          <h1>footer</h1>
-        </div>
+const Modal = (props) => {
+  const dispatch = useDispatch();
+  return createPortal(
+    <div>
+      <div className="overlay" onClick={() => dispatch(closeModal())}>
+        {props.children}
       </div>
-    </div>
+    </div>,
+    document.getElementById("modal")
   );
 };
 

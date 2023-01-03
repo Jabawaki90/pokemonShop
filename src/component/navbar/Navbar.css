@@ -40,6 +40,10 @@ li {
   width: 100%;
 }
 
+span {
+  /* text-decoration: none; */
+}
+
 .amount-indicator {
   /* position: absolute;
   background-color: bisque;
@@ -52,7 +56,7 @@ li {
   top: 5px; */
 
   position: absolute;
-  margin-left: 20px;
+  margin-left: -10px;
   margin-bottom: 25px;
   top: 5px;
   display: flex;

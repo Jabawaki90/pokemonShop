@@ -3,6 +3,7 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faDragon, faUser } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 
 const link = {
   textDecoration: "none",
@@ -20,6 +21,9 @@ const wishlist = {
 };
 
 const Navbar = () => {
+  const wish = useSelector((state) => state.user.wish_list);
+  const cart = useSelector((state) => state.user.cart);
+
   return (
     <div className="navbar-container">
       <div className="left-container">
@@ -29,7 +33,7 @@ const Navbar = () => {
         <div className="primary-navigation">
           <ul>
             <li>
-              <Link style={link} to="/generation-page">
+              <Link style={link} to="/main">
                 All Pokemon
               </Link>
             </li>
@@ -44,15 +48,18 @@ const Navbar = () => {
       </div>
       <div className="right-container">
         <div className="icon-container">
-          <span className="amount-indicator">1</span>
+          {wish.length > 0 && (
+            <span className="amount-indicator">{wish.length}</span>
+          )}
           <FontAwesomeIcon style={wishlist} icon={faHeart} />
         </div>
         <div className="icon-container">
-          <span className="amount-indicator">1</span>
+          {cart.length > 0 && (
+            <span className="amount-indicator">{cart.length}</span>
+          )}
           <FontAwesomeIcon style={wishlist} icon={faDragon} />
         </div>
         <div className="icon-container">
-          <span className="amount-indicator">1</span>
           <FontAwesomeIcon style={wishlist} icon={faUser} />
         </div>
       </div>

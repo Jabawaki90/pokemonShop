@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Slider from "../../component/slider/Slider";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper";
 import BannerCard from "../../component/card/BannerCard";
 
 import "swiper/css";
@@ -55,6 +56,10 @@ const HomePage = () => {
               spaceBetween: 10,
             },
           }}
+          autoplay={{
+            delay: 1500,
+            disableOnInteraction: false,
+          }}
           pagination={{
             clickable: true,
             dynamicBullets: true,
@@ -63,6 +68,7 @@ const HomePage = () => {
           slidesPerGroup={1}
           loop={false}
           grabCursor={true}
+          modules={[Autoplay]}
         >
           {randomBanner?.pokemon_species?.map((poke, index) => {
             console.log("name", poke);
