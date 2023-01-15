@@ -1,9 +1,26 @@
 .detail-container {
   background-color: bisque;
+  display: flex;
+  justify-content: center;
   position: fixed;
   top: 10%;
-  left: 25%;
-  width: 50%;
+  left: 37.5%;
+  width: 25%;
   height: 80%;
   transition: 0.5s;
+  border-radius: 25px;
+}
+
+.image-container {
+  margin: 10px;
+  background-color: aliceblue;
+  align-self: center;
+  border-radius: 25px;
+}
+
+.icon {
+  position: absolute;
+  left: 80%;
+  margin: 0;
+  padding: 0;
 }

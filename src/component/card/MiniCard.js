@@ -5,11 +5,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faDragon, faUser } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 
-import { addWishList, openModal } from "../../features/user/userSlice";
+import {
+  addWishList,
+  openModal,
+  addSinglePoke,
+} from "../../features/user/userSlice";
 
 const MiniCard = (props) => {
   const wish = useSelector((state) => state?.user?.wish_list);
   const modal = useSelector((state) => state?.user?.openSingleModal);
+  const single = useSelector((state) => state?.user?.singlePagePokemon);
 
   const dispatch = useDispatch();
 
@@ -39,6 +44,8 @@ const MiniCard = (props) => {
             console.log("yolo", "click");
             dispatch(openModal());
             console.log("modalus", modal);
+            dispatch(addSinglePoke(pokemon));
+            console.log("PPPOOKE", single);
           }}
         >
           <img

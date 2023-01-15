@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -6,13 +6,16 @@ const initialState = {
   cart: [],
   user_sign_in: true,
   openSingleModal: false,
-  singlePagePokemon: {},
+  singlePagePokemon: [],
 };
 
 export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
+    addSinglePoke: (state, action) => {
+      state.singlePagePokemon = [action.payload];
+    },
     addWishList: (state, action) => {
       state.wish_list = [...state.wish_list, action.payload];
     },
@@ -26,7 +29,7 @@ export const userSlice = createSlice({
   },
 });
 
-export const { addWishList, addToCart, openModal, closeModal } =
+export const { addWishList, addToCart, openModal, closeModal, addSinglePoke } =
   userSlice.actions;
 
 export default userSlice.reducer;
